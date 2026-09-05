@@ -57,13 +57,13 @@ body {
 .logo-left {
     display: flex;
     align-items: center;
-    margin-left: 50px; /* Geser logo kiri ke kanan (mendekati tengah) */
+    margin-left: 25px;
 }
 
 .logo-right {
     display: flex;
     align-items: center;
-    margin-right: 50px; /* Geser logo kanan ke kiri (mendekati tengah) */
+    margin-right: 25px;
 }
 
 .title-center {
@@ -173,7 +173,6 @@ body {
     color: #ffffff;
 }
 
-/* KHUSUS BOX KONDISI KORBAN WARNA PUTIH */
 .victim-details-box {
     background: #ffffff;
     border-radius: 10px;
@@ -306,22 +305,38 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* Memastikan header tetap horizontal (logo kiri & kanan di atas sejajar) */
     .header {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .header::after {
         display: none;
     }
 
+    .logo-left, .logo-right {
+        margin: 0;
+    }
+
+    /* Ukuran logo sedikit disesuaikan agar pas di layar HP */
+    .logo-left img, .logo-right img {
+        height: 50px !important; 
+    }
+
     .title-center h1 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
     }
 
     .title-center h2 {
-        font-size: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .date-badge {
+        font-size: 0.75rem;
+        padding: 2px 8px;
     }
 
     .card-value {
