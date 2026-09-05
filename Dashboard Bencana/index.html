@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Situasi - Musibah Kebakaran Mandala</title>
+    <!-- Google Fonts & FontAwesome untuk Ikon -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Hubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-left">
+                <img src="logo/logo_pemprov.jpeg" alt="Logo Pemprov" style="height: 100px; object-fit: contain;">
+            </div>
+            <div class="title-center">
+                <h1>LAPORAN SITUASI</h1>
+                <h2>MUSIBAH KEBAKARAN MANDALA</h2>
+                <div class="date-badge">
+                    <i class="fa-regular fa-calendar"></i> HARI / TANGGAL : <span id="header-date">SABTU, 05 SEPTEMBER 2026</span>
+                </div>
+            </div>
+            <div class="logo-right">
+                <img src="logo/logo_bpbd.png" alt="Logo BPBD" style="height: 100px; object-fit: contain;">
+            </div>
+        </div>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            
+            <!-- KOLOM KIRI -->
+            <div class="column">
+                <!-- Rumah Terdampak -->
+                <div class="card bg-blue-1">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-house"></i></div>
+                        <div class="card-title">RUMAH TERDAMPAK</div>
+                    </div>
+                    <div class="card-value" id="val-rumah">272</div>
+                </div>
+
+                <!-- Tempat Usaha -->
+                <div class="card bg-blue-2">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-store"></i></div>
+                        <div class="card-title">TEMPAT USAHA</div>
+                    </div>
+                    <div class="card-value" id="val-usaha">0</div>
+                </div>
+
+                <!-- Perahu -->
+                <div class="card bg-teal-1">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-ferry"></i></div>
+                        <div class="card-title">PERAHU</div>
+                    </div>
+                    <div class="card-value" id="val-perahu">24</div>
+                </div>
+
+                <!-- Kapal -->
+                <div class="card bg-teal-2">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-ship"></i></div>
+                        <div class="card-title">KAPAL</div>
+                    </div>
+                    <div class="card-value" id="val-kapal">0</div>
+                </div>
+
+                <!-- Tempat Ibadah -->
+                <div class="card bg-orange">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-place-of-worship"></i></div>
+                        <div>
+                            <div class="card-title">TEMPAT IBADAH</div>
+                            <div style="font-size: 0.85rem; font-weight: 600; opacity: 0.9;">- MASJID</div>
+                        </div>
+                    </div>
+                    <div class="card-value" id="val-ibadah">1</div>
+                </div>
+            </div>
+
+            <!-- KOLOM KANAN -->
+            <div class="column">
+                <!-- Korban Terdampak Utama -->
+                <div class="main-victim-card">
+                    <div class="card-left">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2);"><i class="fa-solid fa-users"></i></div>
+                        <div class="card-title">KORBAN TERDAMPAK</div>
+                    </div>
+                    <div class="card-value" id="val-korban-total">1.245</div>
+                </div>
+
+                <!-- Detail Kondisi Korban -->
+                <div class="victim-details-box">
+                    <div class="victim-header">
+                        KONDISI KORBAN <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <!-- Korban Jiwa -->
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-user" style="color: #94a3b8; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Korban Jiwa</span>
+                        </div>
+                        <div class="sub-row-val" id="val-jiwa">0</div>
+                    </div>
+
+                    <!-- Luka Ringan -->
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-user" style="color: #22c55e; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Luka Ringan</span>
+                        </div>
+                        <div class="sub-row-val" id="val-luka-ringan">0</div>
+                    </div>
+
+                    <!-- Luka Berat -->
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-user" style="color: #f97316; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Luka Berat</span>
+                        </div>
+                        <div class="sub-row-val" id="val-luka-berat">0</div>
+                    </div>
+
+                    <!-- Sakit Ringan -->
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-square-plus" style="color: #38bdf8; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Sakit Ringan</span>
+                        </div>
+                        <div class="sub-row-val" id="val-sakit-ringan">32</div>
+                    </div>
+
+                    <!-- Sakit Berat -->
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-square-plus" style="color: #ef4444; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Sakit Berat</span>
+                        </div>
+                        <div class="sub-row-val" id="val-sakit-berat">1</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER RUNNING TEXT REALTIME -->
+        <div class="footer-realtime-container">
+            <div class="footer-badge-fixed">
+                <span class="dot-pulse"></span> UPDATE REALTIME
+            </div>
+            <div class="running-text-wrapper">
+                <div class="running-text" id="running-text-content">
+                    MEMUAT DATA STATUS TERBARU...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hubungkan file JavaScript eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
