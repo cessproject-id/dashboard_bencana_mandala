@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin - Update Dashboard Bencana</title>
+    <title>Panel Admin - Dashboard Bencana</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -22,25 +22,32 @@
     </style>
 </head>
 <body>
-
     <div class="admin-container">
-        <h1>PANEL KONTROL ADMIN</h1>
+        <h1>PANEL ADMIN DASHBOARD</h1>
         <div id="alert" class="alert-success">Data berhasil diperbarui ke proyektor!</div>
-
         <form id="admin-form">
-            <div class="section-title">Data Utama Kiri</div>
-            <div class="form-group"><label>Kepala Keluarga (KK)</label><input type="number" id="input-kk" required></div>
-            <div class="form-group"><label>Jiwa</label><input type="number" id="input-jiwa-card" required></div>
-            <div class="form-group"><label>Pengungsi Diluar Tenda</label><input type="number" id="input-pengungsi" required></div>
-            <div class="form-group"><label>Titik Tenda Pengungsian</label><input type="number" id="input-tenda" required></div>
-            <div class="form-group"><label>Total Pengungsi (Bawah Kiri)</label><input type="text" id="input-korban-total" required></div>
+            <div class="section-title">Data Terdampak (Panel Kiri Atas)</div>
+            <div class="form-group"><label>KK Terdampak</label><input type="text" id="input-kk" required></div>
+            <div class="form-group"><label>Jiwa Terdampak</label><input type="text" id="input-jiwa" required></div>
+            <div class="form-group"><label>Titik Pengungsian</label><input type="text" id="input-tenda" required></div>
 
-            <div class="section-title">Kondisi Korban (Kanan)</div>
-            <div class="form-group"><label>Korban Jiwa</label><input type="number" id="input-jiwa" required></div>
-            <div class="form-group"><label>Luka Ringan</label><input type="number" id="input-luka-ringan" required></div>
-            <div class="form-group"><label>Luka Berat</label><input type="number" id="input-luka-berat" required></div>
-            <div class="form-group"><label>Sakit Ringan</label><input type="number" id="input-sakit-ringan" required></div>
-            <div class="form-group"><label>Sakit Berat</label><input type="number" id="input-sakit-berat" required></div>
+            <div class="section-title">Data Pengungsi (Panel Kanan Atas)</div>
+            <div class="form-group"><label>Total Pengungsi</label><input type="text" id="input-total-pengungsi" required></div>
+            <div class="form-group"><label>Pengungsi Tertampung</label><input type="text" id="input-tertampung" required></div>
+            <div class="form-group"><label>Pengungsi Diluar Tenda</label><input type="text" id="input-belum-tertampung" required></div>
+
+            <div class="section-title">Data Kelompok Rentan (Panel Bawah)</div>
+            <div class="form-group"><label>Dewasa</label><input type="number" id="input-dewasa" required></div>
+            <div class="form-group"><label>Anak-Anak</label><input type="number" id="input-anak" required></div>
+            <div class="form-group"><label>Balita</label><input type="number" id="input-balita" required></div>
+            <div class="form-group"><label>Bayi</label><input type="number" id="input-bayi" required></div>
+            <div class="form-group"><label>Lansia</label><input type="number" id="input-lansia" required></div>
+            <div class="form-group"><label>Ibu Hamil</label><input type="number" id="input-hamil" required></div>
+            <div class="form-group"><label>Disabilitas</label><input type="number" id="input-disabilitas" required></div>
+
+            <div class="section-title">Informasi Header & Lokasi</div>
+            <div class="form-group"><label>Waktu Update (Contoh: 18:00 WIT)</label><input type="text" id="input-time" required></div>
+            <div class="form-group"><label>Lokasi Posko</label><input type="text" id="input-location" required></div>
 
             <button type="submit" class="btn-save"><i class="fa-solid fa-floppy-disk"></i> SIMPAN & UPDATE REALTIME</button>
         </form>
@@ -48,30 +55,40 @@
 
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            const savedData = localStorage.getItem('bencana_card_data');
+            const savedData = localStorage.getItem('bencana_image_layout_data');
             if (savedData) {
                 const data = JSON.parse(savedData);
-                document.getElementById('input-kk').value = data.kk ?? 272;
-                document.getElementById('input-jiwa-card').value = data.jiwaCard ?? 0;
-                document.getElementById('input-pengungsi').value = data.pengungsi ?? 24;
-                document.getElementById('input-tenda').value = data.tenda ?? 0;
-                document.getElementById('input-korban-total').value = data.korbanTotal ?? '1.245';
-                document.getElementById('input-jiwa').value = data.jiwa ?? 0;
-                document.getElementById('input-luka-ringan').value = data.lukaRingan ?? 0;
-                document.getElementById('input-luka-berat').value = data.lukaBerat ?? 0;
-                document.getElementById('input-sakit-ringan').value = data.sakitRingan ?? 32;
-                document.getElementById('input-sakit-berat').value = data.sakitBerat ?? 1;
+                document.getElementById('input-kk').value = data.kk ?? '399';
+                document.getElementById('input-jiwa').value = data.jiwa ?? '2.169';
+                document.getElementById('input-tenda').value = data.tenda ?? '21';
+                document.getElementById('input-total-pengungsi').value = data.totalPengungsi ?? '2.169';
+                document.getElementById('input-tertampung').value = data.tertampung ?? '1.373';
+                document.getElementById('input-belum-tertampung').value = data.belumTertampung ?? '796';
+                document.getElementById('input-dewasa').value = data.dewasa ?? '525';
+                document.getElementById('input-anak').value = data.anak ?? '116';
+                document.getElementById('input-balita').value = data.balita ?? '53';
+                document.getElementById('input-bayi').value = data.bayi ?? '29';
+                document.getElementById('input-lansia').value = data.lansia ?? '25';
+                document.getElementById('input-hamil').value = data.hamil ?? '9';
+                document.getElementById('input-disabilitas').value = data.disabilitas ?? '5';
+                document.getElementById('input-time').value = data.time ?? '18:00 WIT';
+                document.getElementById('input-location').value = data.location ?? 'Kelurahan Mandala, Kota Jayapura';
             } else {
-                document.getElementById('input-kk').value = 272;
-                document.getElementById('input-jiwa-card').value = 0;
-                document.getElementById('input-pengungsi').value = 24;
-                document.getElementById('input-tenda').value = 0;
-                document.getElementById('input-korban-total').value = '1.245';
-                document.getElementById('input-jiwa').value = 0;
-                document.getElementById('input-luka-ringan').value = 0;
-                document.getElementById('input-luka-berat').value = 0;
-                document.getElementById('input-sakit-ringan').value = 32;
-                document.getElementById('input-sakit-berat').value = 1;
+                document.getElementById('input-kk').value = '399';
+                document.getElementById('input-jiwa').value = '2.169';
+                document.getElementById('input-tenda').value = '21';
+                document.getElementById('input-total-pengungsi').value = '2.169';
+                document.getElementById('input-tertampung').value = '1.373';
+                document.getElementById('input-belum-tertampung').value = '796';
+                document.getElementById('input-dewasa').value = '525';
+                document.getElementById('input-anak').value = '116';
+                document.getElementById('input-balita').value = '53';
+                document.getElementById('input-bayi').value = '29';
+                document.getElementById('input-lansia').value = '25';
+                document.getElementById('input-hamil').value = '9';
+                document.getElementById('input-disabilitas').value = '5';
+                document.getElementById('input-time').value = '18:00 WIT';
+                document.getElementById('input-location').value = 'Kelurahan Mandala, Kota Jayapura';
             }
         });
 
@@ -79,18 +96,23 @@
             e.preventDefault();
             const newData = {
                 kk: document.getElementById('input-kk').value,
-                jiwaCard: document.getElementById('input-jiwa-card').value,
-                pengungsi: document.getElementById('input-pengungsi').value,
-                tenda: document.getElementById('input-tenda').value,
-                korbanTotal: document.getElementById('input-korban-total').value,
                 jiwa: document.getElementById('input-jiwa').value,
-                lukaRingan: document.getElementById('input-luka-ringan').value,
-                lukaBerat: document.getElementById('input-luka-berat').value,
-                sakitRingan: document.getElementById('input-sakit-ringan').value,
-                sakitBerat: document.getElementById('input-sakit-berat').value
+                tenda: document.getElementById('input-tenda').value,
+                totalPengungsi: document.getElementById('input-total-pengungsi').value,
+                tertampung: document.getElementById('input-tertampung').value,
+                belumTertampung: document.getElementById('input-belum-tertampung').value,
+                dewasa: document.getElementById('input-dewasa').value,
+                anak: document.getElementById('input-anak').value,
+                balita: document.getElementById('input-balita').value,
+                bayi: document.getElementById('input-bayi').value,
+                lansia: document.getElementById('input-lansia').value,
+                hamil: document.getElementById('input-hamil').value,
+                disabilitas: document.getElementById('input-disabilitas').value,
+                time: document.getElementById('input-time').value,
+                location: document.getElementById('input-location').value
             };
 
-            localStorage.setItem('bencana_card_data', JSON.stringify(newData));
+            localStorage.setItem('bencana_image_layout_data', JSON.stringify(newData));
 
             const alertBox = document.getElementById('alert');
             alertBox.style.display = 'block';
