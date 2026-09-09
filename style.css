@@ -67,7 +67,7 @@ body {
 }
 
 .header-logo {
-    height: 90px; /* Logo diperbesar */
+    height: 150px; /* Logo diperbesar */
     object-fit: contain;
 }
 
