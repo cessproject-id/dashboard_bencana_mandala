@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Terkini Korban Terdampak - Musibah Kebakaran Mandala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-left">
+                <img src="logo/logo_pemprov.jpeg" alt="Logo logo_pemprov" class="header-logo">
+            </div>
+            <div class="title-center">
+                <h1>LAPORAN SITUASI</h1>
+                <h2>MUSIBAH KEBAKARAN MANDALA</h2>
+                <div class="date-badge">
+                    <i class="fa-regular fa-calendar"></i> HARI / TANGGAL : <span id="header-date">SABTU, 05 SEPTEMBER 2026</span>
+                </div>
+            </div>
+            <div class="logo-right">
+                <img src="logo/logo_bpbd.png" alt="Logo BPBD" class="header-logo">
+            </div>
+        </div>
+
+        <!-- MAIN TABLE SECTION -->
+        <div class="table-section-wrapper">
+            <h2 class="table-main-title">DATA TERKINI KORBAN TERDAMPAK</h2>
+            
+            <div class="table-responsive">
+                <table class="custom-data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">URAIAN</th>
+                            <th style="width: 25%;">JUMLAH</th>
+                            <th style="width: 40%;">KETERANGAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Kepala Keluarga (KK)</td>
+                            <td id="val-kk" class="val-highlight">399 KK</td>
+                            <td id="ket-kk">Data korban terdampak</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Jiwa</td>
+                            <td id="val-jiwa" class="val-highlight">2.169 jiwa</td>
+                            <td id="ket-jiwa">Data korban terdampak</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Pengungsi di luar tenda</td>
+                            <td id="val-pengungsi" class="val-highlight">796 jiwa</td>
+                            <td id="ket-pengungsi">Tidak teridentifikasi</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Titik tenda pengungsian</td>
+                            <td id="val-tenda" class="val-highlight">21 titik</td>
+                            <td id="ket-tenda">Ditempati korban</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FOOTER RUNNING TEXT REALTIME -->
+        <div class="footer-realtime-container">
+            <div class="footer-badge-fixed">
+                <span class="dot-pulse"></span> UPDATE REALTIME
+            </div>
+            <div class="running-text-wrapper">
+                <div class="running-text" id="running-text-content">
+                    MEMUAT DATA STATUS TERBARU...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
