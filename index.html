@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Situasi - Musibah Kebakaran Mandala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-left">
+                <img src="logo/logo_pemprov.jpeg" alt="Logo logo_pemprov" class="header-logo" style="height: 120px !important; width: auto !important;">
+            </div>
+            <div class="title-center">
+                <h1>LAPORAN SITUASI</h1>
+                <h2>MUSIBAH KEBAKARAN MANDALA</h2>
+                <div class="date-badge">
+                    <i class="fa-regular fa-calendar"></i> HARI / TANGGAL : <span id="header-date">SABTU, 05 SEPTEMBER 2026</span>
+                </div>
+            </div>
+            <div class="logo-right">
+                <img src="logo/logo_bpbd.png" alt="Logo BPBD" class="header-logo" style="height: 120px !important; width: auto !important;">
+            </div>
+        </div>
+
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            
+            <!-- KOLOM KIRI -->
+            <div class="column">
+                <div class="card bg-blue-1">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="card-title">KEPALA KELUARGA</div>
+                    </div>
+                    <div class="card-value" id="val-kk">272</div>
+                </div>
+
+                <div class="card bg-blue-2">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-person"></i></div>
+                        <div class="card-title">JIWA</div>
+                    </div>
+                    <div class="card-value" id="val-jiwa-card">0</div>
+                </div>
+
+                <div class="card bg-teal-1">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-campground"></i></div>
+                        <div class="card-title">PENGUNGSI DILUAR TENDA</div>
+                    </div>
+                    <div class="card-value" id="val-pengungsi">24</div>
+                </div>
+
+                <div class="card bg-teal-2">
+                    <div class="card-left">
+                        <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="card-title">TITIK TENDA PENGUNGSIAN</div>
+                    </div>
+                    <div class="card-value" id="val-tenda">0</div>
+                </div>
+
+                <div class="main-victim-card">
+                    <div class="card-left">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2);"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="card-title">KORBAN TERDAMPAK</div>
+                    </div>
+                    <div class="card-value" id="val-korban-total">1.245</div>
+                </div>
+            </div>
+
+            <!-- KOLOM KANAN (HANYA KONDISI KORBAN) -->
+            <div class="column right-column-single">
+                <div class="victim-details-box">
+                    <div class="victim-header">
+                        KONDISI KORBAN <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-user" style="color: #64748b; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Korban Jiwa</span>
+                        </div>
+                        <div class="sub-row-val" id="val-jiwa">0</div>
+                    </div>
+
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-user" style="color: #22c55e; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Luka Ringan</span>
+                        </div>
+                        <div class="sub-row-val" id="val-luka-ringan">0</div>
+                    </div>
+
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-user" style="color: #f97316; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Luka Berat</span>
+                        </div>
+                        <div class="sub-row-val" id="val-luka-berat">0</div>
+                    </div>
+
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-square-plus" style="color: #38bdf8; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Sakit Ringan</span>
+                        </div>
+                        <div class="sub-row-val" id="val-sakit-ringan">32</div>
+                    </div>
+
+                    <div class="sub-row">
+                        <div class="sub-row-left">
+                            <i class="fa-solid fa-square-plus" style="color: #ef4444; font-size: 1.2rem; width: 25px;"></i>
+                            <span>Sakit Berat</span>
+                        </div>
+                        <div class="sub-row-val" id="val-sakit-berat">1</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER RUNNING TEXT REALTIME -->
+        <div class="footer-realtime-container">
+            <div class="footer-badge-fixed">
+                <span class="dot-pulse"></span> UPDATE REALTIME
+            </div>
+            <div class="running-text-wrapper">
+                <div class="running-text" id="running-text-content">
+                    MEMUAT DATA STATUS TERBARU...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

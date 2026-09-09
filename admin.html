@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Update Dashboard Bencana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #0b132b; color: #ffffff; padding: 20px; display: flex; justify-content: center; }
+        .admin-container { width: 100%; max-width: 600px; background: #132247; border: 2px solid #3a506b; border-radius: 12px; padding: 25px; box-shadow: 0 0 20px rgba(0, 150, 255, 0.2); }
+        h1 { font-size: 1.4rem; text-align: center; margin-bottom: 20px; color: #38bdf8; }
+        .form-group { margin-bottom: 12px; display: flex; flex-direction: column; gap: 5px; }
+        label { font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
+        input { padding: 10px 15px; font-size: 1rem; border-radius: 8px; border: 1px solid #3a506b; background: #0b132b; color: #ffffff; font-weight: 700; }
+        input:focus { outline: none; border-color: #38bdf8; }
+        .btn-save { width: 100%; padding: 12px; background: #16a34a; color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; margin-top: 15px; }
+        .btn-save:hover { background: #15803d; }
+        .alert-success { background: rgba(22, 163, 74, 0.2); border: 1px solid #16a34a; color: #4ade80; padding: 10px; border-radius: 6px; text-align: center; margin-bottom: 15px; display: none; font-weight: 600; }
+        .section-title { font-size: 1rem; color: #fbbf24; margin: 15px 0 8px 0; border-bottom: 1px solid #3a506b; padding-bottom: 5px; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h1>PANEL KONTROL ADMIN</h1>
+        <div id="alert" class="alert-success">Data berhasil diperbarui ke proyektor!</div>
+
+        <form id="admin-form">
+            <div class="section-title">Data Utama Kiri</div>
+            <div class="form-group"><label>Kepala Keluarga (KK)</label><input type="number" id="input-kk" required></div>
+            <div class="form-group"><label>Jiwa</label><input type="number" id="input-jiwa-card" required></div>
+            <div class="form-group"><label>Pengungsi Diluar Tenda</label><input type="number" id="input-pengungsi" required></div>
+            <div class="form-group"><label>Titik Tenda Pengungsian</label><input type="number" id="input-tenda" required></div>
+            <div class="form-group"><label>Korban Terdampak (Bawah Kiri)</label><input type="text" id="input-korban-total" required></div>
+
+            <div class="section-title">Kondisi Korban (Kanan)</div>
+            <div class="form-group"><label>Korban Jiwa</label><input type="number" id="input-jiwa" required></div>
+            <div class="form-group"><label>Luka Ringan</label><input type="number" id="input-luka-ringan" required></div>
+            <div class="form-group"><label>Luka Berat</label><input type="number" id="input-luka-berat" required></div>
+            <div class="form-group"><label>Sakit Ringan</label><input type="number" id="input-sakit-ringan" required></div>
+            <div class="form-group"><label>Sakit Berat</label><input type="number" id="input-sakit-berat" required></div>
+
+            <button type="submit" class="btn-save"><i class="fa-solid fa-floppy-disk"></i> SIMPAN & UPDATE REALTIME</button>
+        </form>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedData = localStorage.getItem('bencana_card_data');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('input-kk').value = data.kk ?? 272;
+                document.getElementById('input-jiwa-card').value = data.jiwaCard ?? 0;
+                document.getElementById('input-pengungsi').value = data.pengungsi ?? 24;
+                document.getElementById('input-tenda').value = data.tenda ?? 0;
+                document.getElementById('input-korban-total').value = data.korbanTotal ?? '1.245';
+                document.getElementById('input-jiwa').value = data.jiwa ?? 0;
+                document.getElementById('input-luka-ringan').value = data.lukaRingan ?? 0;
+                document.getElementById('input-luka-berat').value = data.lukaBerat ?? 0;
+                document.getElementById('input-sakit-ringan').value = data.sakitRingan ?? 32;
+                document.getElementById('input-sakit-berat').value = data.sakitBerat ?? 1;
+            } else {
+                document.getElementById('input-kk').value = 272;
+                document.getElementById('input-jiwa-card').value = 0;
+                document.getElementById('input-pengungsi').value = 24;
+                document.getElementById('input-tenda').value = 0;
+                document.getElementById('input-korban-total').value = '1.245';
+                document.getElementById('input-jiwa').value = 0;
+                document.getElementById('input-luka-ringan').value = 0;
+                document.getElementById('input-luka-berat').value = 0;
+                document.getElementById('input-sakit-ringan').value = 32;
+                document.getElementById('input-sakit-berat').value = 1;
+            }
+        });
+
+        document.getElementById('admin-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newData = {
+                kk: document.getElementById('input-kk').value,
+                jiwaCard: document.getElementById('input-jiwa-card').value,
+                pengungsi: document.getElementById('input-pengungsi').value,
+                tenda: document.getElementById('input-tenda').value,
+                korbanTotal: document.getElementById('input-korban-total').value,
+                jiwa: document.getElementById('input-jiwa').value,
+                lukaRingan: document.getElementById('input-luka-ringan').value,
+                lukaBerat: document.getElementById('input-luka-berat').value,
+                sakitRingan: document.getElementById('input-sakit-ringan').value,
+                sakitBerat: document.getElementById('input-sakit-berat').value
+            };
+
+            localStorage.setItem('bencana_card_data', JSON.stringify(newData));
+
+            const alertBox = document.getElementById('alert');
+            alertBox.style.display = 'block';
+            setTimeout(() => { alertBox.style.display = 'none'; }, 3000);
+        });
+    </script>
+</body>
+</html>
